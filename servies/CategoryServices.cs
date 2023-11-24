@@ -1,0 +1,25 @@
+﻿using Entytess;
+using Microsoft.AspNetCore.Mvc;
+using repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace servies
+{
+    public class CategoryServices : ICategoryServices
+    {
+        private readonly ICategoryRepository _category;
+
+        public CategoryServices(ICategoryRepository category)
+        {
+            _category = category;
+        }
+        public async Task<IEnumerable<Category>> GetAllCategory()
+        {
+            return await _category.GetAllCategory();
+        }
+    }
+}
